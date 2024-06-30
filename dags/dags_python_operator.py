@@ -15,5 +15,11 @@ with DAG(
         fruit = ['APPLE', "BANANA", "ORANGE", "AVOCADO"]
         rand_int = random.randint(0,3)
         print(fruit[rand_int])
-    
-        pass
+
+
+    py_t1 = PythonOperator(
+        task_id = "py_t1",
+        python_callable=select_fruit # 어떤 함수를 실행할 건지 명시
+    )
+
+    py_t1
