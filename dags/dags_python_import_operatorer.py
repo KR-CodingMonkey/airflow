@@ -7,7 +7,7 @@ import pendulum
 import random
 
 with DAG(
-    dag_id="dags_python_operator",
+    dag_id="dags_python_import_operator",
     schedule="30 6 * * *",
     start_date=pendulum.datetime(2021, 1, 1, tz="UTC"),
     catchup=False,
