@@ -1,8 +1,8 @@
 from airflow.models.dag import DAG
 from airflow.operators.bash import BashOperator
-from airflow.operators.empty import EmptyOperator
+# from airflow.operators.empty import EmptyOperator
 import datetime
-import pendulum
+import pendulum # datetime 자료형을 쉽게 다룰 수 있게 해줌
 
 with DAG(
     dag_id="dags_bash_operator",
@@ -24,3 +24,4 @@ with DAG(
     )
 
     bash_t1 >> bash_t2
+       
