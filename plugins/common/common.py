@@ -1,5 +1,4 @@
+def import_python_func():
+    print("import python func")
 
-
-
-def get_sftp():
-    print("get_sftp")
+    
