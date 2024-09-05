@@ -1,6 +1,6 @@
 from airflow.models.dag import DAG
 from airflow.operators.python import PythonOperator
-from common.common import import_python_func
+from common.common_func import import_python_func
 import datetime
 import pendulum
 
