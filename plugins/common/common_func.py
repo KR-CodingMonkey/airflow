@@ -6,3 +6,15 @@ def register(name, gender, *args):
     print(name)     # Dave
     print(gender)   # male
     print(args)     # (korea, seoul, 21)
+
+def register_kwargs(name, gender, **kwargs):
+    print(name)
+    print(gender)
+    print(kwargs)
+    
+    
+def register_args_kwargs(name, gender, *args, **kwargs):
+    print(name)
+    print(gender)
+    print(args)
+    print(kwargs)
