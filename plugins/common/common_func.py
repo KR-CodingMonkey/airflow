@@ -10,14 +10,14 @@ def register(name, gender, *args):
 def register_kwargs(name, gender, **kwargs):
     print(name)
     print(gender)
-    for key, value in kwargs.items():
-        print(key, value)
+    print(kwargs.get("city"))
+    print(kwargs.get("age"))
     
     
 def register_args_kwargs(name, gender, *args, **kwargs):
     print(name)
     print(gender)
     print(args)
-    for key, value in kwargs.items():
-        print(key, value)
+    print(kwargs.get("age"))
+    print(kwargs.get("email"))
     
