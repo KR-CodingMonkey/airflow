@@ -11,7 +11,7 @@ with DAG(
 ) as dag:
 
     t1_kwargs = PythonOperator(
-        task_id = "t1_args",
+        task_id = "t1_kwargs",
         python_callable = register_kwargs,
         op_kwargs = {'name':'dave', 'gender':'male', 'country':'korea', 'city':'seoul', 'age':'21'}
     )
@@ -24,4 +24,4 @@ with DAG(
     )
     
 
-    t1_kwargs > t2_args_kwargs
+    t1_kwargs >> t2_args_kwargs
