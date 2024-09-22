@@ -1,5 +1,3 @@
-
-
 if [ $1 == dog ]; then
 	echo "My cute dog"
 elif [ $1 ==  cat ]; then
