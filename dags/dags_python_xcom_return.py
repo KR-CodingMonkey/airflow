@@ -9,26 +9,23 @@ with DAG(
     start_date=pendulum.datetime(2021, 1, 1, tz="Asia/Seoul"),
     catchup=False,
 ) as dag:
-    def xcom_push(**kwargs):
-            ti = kwargs['ti']
-            ti.xcom_push(key='key1', value="value1")
-            ti.xcom_push(key='key2', value=[1,2,3,4])
+    def xcom_push_return(**kwargs):
+            value3 = "value3"
+            return value3
             
-    def xcom_pull(**kwargs):
+    def xcom_pull_return(**kwargs):
             ti = kwargs['ti']
-            ti_value1 = ti.xcom_pull(key='key1', task_ids="xcom_ti_push")
-            ti_value2 = ti.xcom_pull(key='key2', task_ids="xcom_ti_push")
-            print(ti_value1)
-            print(ti_value2)
+            ti_value3 = ti.xcom_pull(key='return_value', task_ids="xcom_push_by_return")
+            print(ti_value3)
             
-    xcom_ti_push = PythonOperator(
-        task_id = "xcom_ti_push",
-        python_callable=xcom_push
+    xcom_push_by_return = PythonOperator(
+        task_id = "xcom_push_by_return",
+        python_callable=xcom_push_return
     )
     
-    xcom_ti_pull = PythonOperator(
-        task_id = "xcom_ti_pull",
-        python_callable=xcom_pull
+    xcom_pull_by_return = PythonOperator(
+        task_id = "xcom_pull_by_return",
+        python_callable=xcom_pull_return
     )
 
-    xcom_ti_push >> xcom_ti_pull
+    xcom_push_by_return >> xcom_pull_by_return
