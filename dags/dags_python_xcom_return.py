@@ -9,7 +9,7 @@ with DAG(
     start_date=pendulum.datetime(2021, 1, 1, tz="Asia/Seoul"),
     catchup=False,
 ) as dag:
-    def xcom_push_return(**kwargs):
+    def xcom_push_return():
             value3 = "value3"
             return value3
             
