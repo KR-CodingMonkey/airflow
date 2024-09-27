@@ -14,7 +14,7 @@ with DAG(
 ) as dag:
     t1_push = BashOperator(
     task_id="t1_push",
-    bash_command="{{ti.xcom_push(key='bash_xcom_key1', value='bash_xcom_value1')}} &&"
+    bash_command="echo {{ti.xcom_push(key='bash_xcom_key1', value='bash_xcom_value1')}} &&"
                  "echo today is {BASE_TIME}",
     do_xcom_push=True
     )
