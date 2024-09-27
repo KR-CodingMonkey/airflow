@@ -12,6 +12,9 @@ with DAG(
     tags=["example", "example2"],
     params={"example_key": "example_value"},
 ) as dag:
+    
+    BASE_TIME = "{{data_interval_end.in_timezone('Asia/Seoul').strftime('%Y%m%d')}}"
+    
     t1_push = BashOperator(
     task_id="t1_push",
     bash_command="echo {{ti.xcom_push(key='bash_xcom_key1', value='bash_xcom_value1')}} &&"
